@@ -116,6 +116,20 @@ currentDomain:
 
 currentDomain is a read-only property that returns the current domain name. 
 
+.. list-table:: currentDomain options
+   :widths: 15 10 30 50
+   :header-rows: 1
+
+   * - Method
+     - Description
+     - Return Type
+     - Ommited value
+   * - currentDomain
+     - NA
+     - Returns the current domain name
+     - String
+
+
 Requisites
 ==========
 
