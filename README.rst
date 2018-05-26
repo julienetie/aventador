@@ -72,14 +72,16 @@ currentDomain:
 
 currentDomain is a read-only property that returns the current domain name. 
 
-requisites
+Requisites
+==========
 
     .. line-block::
 
         CSS: Each domain must have at least the following:
 
 .. code:: css
-
+   {
    position: absolute;
-   transition: ?
-   z-index: <equal to dormant zIndex>
+   transition: ?;
+   z-index: <equal to dormant zIndex>;
+   }
