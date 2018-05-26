@@ -61,6 +61,11 @@ dormant and layers transitioning from dormant.
      - Sets the default domain
      - Not Allowed
      - Not Allowed
+   * - style
+     - Object
+     - Sets specific transitioning styles
+     - Changes z-index without CSS 
+     - Not allowed
    * - zIndexes
      - Object
      - Sets the zIndexes of transition states
