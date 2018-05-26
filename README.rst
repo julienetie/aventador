@@ -156,3 +156,70 @@ Requisites
    [data-domain-post-dormant]{
     z-index: ?;
    }
+
+@TODO add tables
+
+DOMContentLoaded initializations
+##################
+
+Whilst the DOM is rendering there may be jittery and unexpcted bheaviors within a component. Aventador resolves this by 
+allowing the inital state to be set via CSS (or in-line JavaScript) and then revealed within DOMContentLoaded.
+
+.. code:: javascript
+
+   document.addEventListener("DOMContentLoaded", e => {
+      Aventador.domainName.componentName.set('fade-in') // data-fade-in
+   });
+
+
+Registering elements
+##################
+
+There are two ways to register an element. You can supply the unique #id attribute or pass in an Element.
+
+.. code:: javascript
+
+   // Register a domain
+      Aventador.getDomain('page-1')
+      // Aventador.page1
+      Aventador.getDomain('page-2', someElement); // by element 
+      // Aventador.page2
+      
+   // Register a unique domains
+      Aventador.getDomains('pages 0'); 
+      Aventador.getDomains('pages 1');
+      // Aventador.pages     // Affects both pages
+      
+      Aventador.getDomains('pages', nodeList);
+      // Aventador.pages     // Affects all in nodeList
+  
+   // Register a component
+      Aventador.getComponent('side-bar');
+      // Aventador.sideBar
+      Aventador.getComponent('side-bar', someElement);
+      // Aventador.sideBar
+      
+     // Register a unique component
+      Aventador.getComponents('side-bars left'); 
+      Aventador.getComponents('side-bars right');
+      // Aventador.sideBars     // Affects both components
+      
+      
+Attribute conventions
+####################
+
+.. code:: html
+
+  <!-- Use id attributes to register unique components and domains -->
+       #main-content                 // .mainContent
+      
+  <!-- Use id attributes to register common components and domains
+       Only the first part is used as the collection name -->
+       #common-components one        //  commonComponents
+       #common-components two        //  commonComponents
+      
+   <!-- Use data attributes to affect state via CSS without a value -->
+       data-display                  //  showContent
+      
+   <!-- Only use classes for CSS styling -->
+       .use-lower-case-hyphens
