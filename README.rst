@@ -71,3 +71,15 @@ currentDomain:
    Aventador.currentDomain
 
 currentDomain is a read-only property that returns the current domain name. 
+
+requisites
+
+    .. line-block::
+
+        CSS: Each domain must have at least the following:
+
+.. code:: css
+
+   position: absolute;
+   transition: ?
+   z-index: <equal to dormant zIndex>
