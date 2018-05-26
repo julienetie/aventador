@@ -36,9 +36,9 @@ setDomain:
    Aventador.setDomain('page-1')
    .style({opacity: 1, width: '100%'})
    .zIndexes({
-      current:30,
-      dormant:0,
-      postDormant:1
+      current: 'domain-current'
+      dormant: 'domain-dormant',
+      postDormant: 'domain-post-dormant'
    });
    
 setDomain sets a page as the default. It sets supplied domain name as the internal
@@ -68,7 +68,7 @@ dormant and layers transitioning from dormant.
      - Not allowed
    * - zIndexes
      - Object
-     - Sets the zIndexes of transition states
+     - Sets the zIndexes of transition states by data attribute
      - z-index styles are not affected
      - Not allowed
 
@@ -143,4 +143,16 @@ Requisites
      position: absolute;
      transition: ?;
      z-index: <equal to dormant zIndex>;
+   }
+   
+   [data-domain-current]{
+    z-index: ?
+   }
+   
+   [data-domain-dormant]{
+    z-index: ?;
+   }
+   
+   [data-domain-post-dormant]{
+    z-index: ?;
    }
