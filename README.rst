@@ -80,8 +80,9 @@ Requisites
         CSS: Each domain must have at least the following:
 
 .. code:: css
+
    {
-   position: absolute;
-   transition: ?;
-   z-index: <equal to dormant zIndex>;
+     position: absolute;
+     transition: ?;
+     z-index: <equal to dormant zIndex>;
    }
