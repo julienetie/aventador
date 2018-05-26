@@ -5,7 +5,7 @@
 Aventador
 ########
 
-.. image:: https://raw.githubusercontent.com/julienetie/img/master/6d98d729c1ab1cbd1b4ef94612117bbe_red-bull-clipart-spanish-bull-pencil-and-in-color-red-bull-spanish-bull-drawing_1023-775.png
+.. image:: https://raw.githubusercontent.com/julienetie/img/master/aventador-small.png
 
    
 A framework for high performance web interactions
@@ -36,9 +36,9 @@ setDomain:
    Aventador.setDomain('page-1')
    .style({opacity: 1, width: '100%'})
    .zIndexes({
-      current: 'domain-current'
-      dormant: 'domain-dormant',
-      postDormant: 'domain-post-dormant'
+      current: () => {}, 
+      dormant: () => {},
+      postDormant: () =>{}
    });
    
 setDomain sets a page as the default. It sets supplied domain name as the internal
@@ -67,8 +67,8 @@ dormant and layers transitioning from dormant.
      - Changes z-index without CSS 
      - Not allowed
    * - zIndexes
-     - Object
-     - Sets the zIndexes of transition states by data attribute
+     - Function
+     - Sets the zIndexes of transition states
      - z-index styles are not affected
      - Not allowed
 
