@@ -223,3 +223,24 @@ Attribute conventions
       
    <!-- Only use classes for CSS styling -->
        .use-lower-case-hyphens
+
+Generate id UUID
+####################
+
+.. code:: javascript
+
+   Aventador.id()
+   
+"id" will generate a universal unique identifier to be optionally used when creating ids within a JavaScript view layer library.
+The id will start from 0. It should not be used in an hardcoded manner as it is expected to change throughout your project's lifespan.
+
+.. code:: javascript
+
+   <li id={`list-item ${id()}`}>some list item</li> // list-item 0
+   
+   <li id={`list-item ${id('ref-')}`}>some list item</li> // list-item ref-0
+   
+Avoiding markdown clashes
+==========
+
+To prevent an id clash, register all id's in the HTML document before generating a UUID 
