@@ -47,21 +47,60 @@ setDomain sets a page as the default. It sets supplied domain name as the intern
 In the above example zIndexes defines the zIndex of layers that are to be viewed,
 dormant and layers transitioning from dormant.
 
-transitionDomain:
+.. list-table:: setDomain options
+   :widths: 15 10 30 50 50
+   :header-rows: 1
+
+   * - Method
+     - Type
+     - Description
+     - Omitted method
+     - Ommited value
+   * - setDomain
+     - string
+     - Sets the default domain
+     - Not Allowed
+     - Not Allowed
+   * - zIndexes
+     - Object
+     - Sets the zIndexes of transition states
+     - z-index styles are not affected
+     - Not allowed
+
+toDomain:
 ============
 
 .. code:: javascript
 
    Aventador
-   .transitionDomain('current')
-   .to('page-2').style({opacity: 1, width: '80%', zIndex: 50})
+   .toDomain('page-2').style({opacity: 1, width: '80%', zIndex: 50})
    .onTransitionEnd(()=> // do something);
   
-transitionDomain will allow you transition from one page to another. 
+toDomain will allow you transition from one page to another. 
 The stylesheet is responsible for absent transforms. TransitionEnd triggers a callback
 once the "transitioning to" page has finished transitioning.
 
 The purpose of Aventador's Domain Transitons is to create a seamless transition between two major layers. 
+
+.. list-table:: toDomain options
+   :widths: 15 10 30 50 50
+   :header-rows: 1
+
+   * - Method
+     - Type
+     - Description
+     - Omitted method
+     - Ommited value
+   * - domainTo
+     - string
+     - Sets the next domain
+     - NA
+     - Not Allowed
+   * - style
+     - Object
+     - Sets specific transitioning styles
+     - Changes z-index without CSS 
+     - Not allowed
 
 currentDomain:
 ==============
