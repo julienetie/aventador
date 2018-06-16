@@ -1,5 +1,5 @@
 import fastdom from 'fastdom';
-import elementHelpersPartial from './element-methods';
+import elementHelpersPartial from './element-methods-partial';
 
 /** 
  * The library function. 
@@ -55,16 +55,13 @@ Aventador.eachClosest = (elementArray, selector) =>
     elementArray.map(element => element.closest(selector));
 
 /** 
- * Generates id method.
+ * Generates an id as a universal unique identifier.
  * @param{number} The unique id. 
+ * @param {string} prefix - prefix name for id. 
+ * @returns {string} 
  */
 const idPartial = () => {
     let id = -1;
-    /** 
-     * Generates an id as a universal unique identifier.
-     * @param {string} prefix - prefix name for id. 
-     * @returns {string} 
-     */
     return (prefix = '', suffix = '') => {
         id++;
         const prefixed = prefix === '' ? id : prefix + ' ' + id;
@@ -84,14 +81,17 @@ Aventador.e = function() {};
 
 /** 
  * Register an element. 
- * @param{} target 
+ * @param{undefined} _ 
  * @param{string} key - Element name.
  * @param{Object} e - Element.  
  */
 Aventador.register = new Proxy({}, {
-    set(target, key, e) {
-        Aventador.e[key] = elementHelpersPartial(target, key, e);
+    set(_, key, e) {
+        Aventador.e[key] = elementHelpersPartial(key, e);
     }
 })
 
-window.Aventador = Aventador;
+// window.Aventador = Aventador;
+
+
+export default Aventador;

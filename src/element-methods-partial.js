@@ -1,13 +1,34 @@
+import fastdom from 'fastdom';
 import { aquire, hypenatedToCamelCase } from './helpers';
 
 /** 
+ * Optimised reads.
+ * @param {Function} callback.  
+ * @return {number} job reference. 
+ */
+const read = (callback) => fastdom.measure(callback());
+
+/** 
+ * Optimised writes.
+ * @param {Function} callback.  
+ * @return {number} job reference. 
+ */
+const write = (callback) => fastdom.mutate(callback());
+
+/** 
+ * Kills a scheduled job.
+ * @param {number} ref - job reference. 
+ */
+const kill = (ref) => fastdom.clear(ref);
+
+
+/** 
  * The elementMethods partial.
- * @param{} target 
  * @param{string} key - Element name.
  * @param{Object} e - Element.  
  * return {Function} elementMethods.
  */
-export default function elementMethodsPartial(target, key, e) {
+export default function elementMethodsPartial(key, e) {
 
     /** 
      * The element interface. 
@@ -158,52 +179,52 @@ export default function elementMethodsPartial(target, key, e) {
      * Dataset shorthand.
      * This is property is not read or write optimised. 
      */
-    elementMethods.data = e.dataset
+    // elementMethods.data = typeof e === 'object' ? e.dataset : {};
     
-    /**  
-     * Removes a given dataset.
-     * @param {string} dataKey - The dataset attribute. 
-     */
-    elementMethods.dataRemove = (dataKey) => Aventador.write(() => e.removeAttribute(`data-${datakey}`));
+    // /**  
+    //  * Removes a given dataset.
+    //  * @param {string} dataKey - The dataset attribute. 
+    //  */
+    // elementMethods.dataRemove = (dataKey) => Aventador.write(() => e.removeAttribute(`data-${datakey}`));
 
-    /** 
-     * Toggle the dataKey.
-     * @param {string} dataKey - The dataset attribute to toggle. 
-     */
-    const dataTogglePartial = () => {
-        let add = true;
-        return (dataKey) => {
-            Aventador.write(() => {
-                if (add) {
-                    e.dataset[hypenatedToCamelCase(dataKey)] = '';
-                    add = false
-                } else {
-                    elementMethods.dataRemove(dataKey);
-                    add = true;
-                }
-            })
-        }
-    }
-    elementMethods.dataToggle = dataTogglePartial();
+    // /** 
+    //  * Toggle the dataKey.
+    //  * @param {string} dataKey - The dataset attribute to toggle. 
+    //  */
+    // const dataTogglePartial = () => {
+    //     let add = true;
+    //     return (dataKey) => {
+    //         Aventador.write(() => {
+    //             if (add) {
+    //                 e.dataset[hypenatedToCamelCase(dataKey)] = '';
+    //                 add = false
+    //             } else {
+    //                 elementMethods.dataRemove(dataKey);
+    //                 add = true;
+    //             }
+    //         })
+    //     }
+    // }
+    // elementMethods.dataToggle = dataTogglePartial();
 
-    /** 
-     * Cycles throught an array of values infinitely to set as a dataset value.
-     * @param {string} dataKey - The dataset attribute to target.
-     * @param {...string} values - The values to toggle. 
-     */
-    const dataCyclePartial = () => {
-        let index = 0;
-        return (dataKey, ...values) => {
-            Aventador.write(() => {
-                e.dataset[hypenatedToCamelCase(dataKey)] = values[index];
-                if (index < values.length - 1) {
-                    index++;
-                } else {
-                    index = 0;
-                }
-            })
-        }
-    }
-    elementMethods.dataCycle = dataCyclePartial();
+    // /** 
+    //  * Cycles throught an array of values infinitely to set as a dataset value.
+    //  * @param {string} dataKey - The dataset attribute to target.
+    //  * @param {...string} values - The values to toggle. 
+    //  */
+    // const dataCyclePartial = () => {
+    //     let index = 0;
+    //     return (dataKey, ...values) => {
+    //         Aventador.write(() => {
+    //             e.dataset[hypenatedToCamelCase(dataKey)] = values[index];
+    //             if (index < values.length - 1) {
+    //                 index++;
+    //             } else {
+    //                 index = 0;
+    //             }
+    //         })
+    //     }
+    // }
+    // elementMethods.dataCycle = dataCyclePartial();
     return elementMethods;
 }
