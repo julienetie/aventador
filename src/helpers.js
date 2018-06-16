@@ -1,3 +1,11 @@
+import fastdom from 'fastdom';
+import fastdomPromised from 'fastdom/extensions/fastdom-promised.js';
+
+/** 
+ * Utilises fastDOM extended by native Promises.  
+ */
+export const fastDOM = fastdom.extend(fastdomPromised);
+
 /** 
  * Converts a hypenated string into camel-case
  * @param {string}

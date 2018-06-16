@@ -1,5 +1,5 @@
-import fastdom from 'fastdom';
 import elementHelpersPartial from './element-methods-partial';
+import { fastDOM } from './helpers';
 
 /** 
  * The library function. 
@@ -11,21 +11,21 @@ function Aventador() {}
  * @param {Function} callback.  
  * @return {number} job reference. 
  */
-Aventador.read = (callback) => fastdom.measure(callback());
+Aventador.read = (callback) => fastDOM.measure(() => callback());
 
 /** 
  * Optimised writes.
  * @param {Function} callback.  
  * @return {number} job reference. 
  */
-Aventador.write = (callback) => fastdom.mutate(callback());
+Aventador.write = (callback) => fastDOM.mutate(() => callback());
 
 
 /** 
  * Kills a scheduled job.
  * @param {number} ref - job reference. 
  */
-Aventador.kill = (ref) => fastdom.clear(ref);
+Aventador.kill = (ref) => fastDOM.clear(ref);
 
 /** 
  * Get the nested selector for each element of an array.
@@ -91,7 +91,7 @@ Aventador.register = new Proxy({}, {
     }
 })
 
-// window.Aventador = Aventador;
+window.Aventador = Aventador;
 
 
 export default Aventador;

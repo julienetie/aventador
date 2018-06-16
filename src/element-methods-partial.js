@@ -1,26 +1,25 @@
-import fastdom from 'fastdom';
+import {fastDOM} from './helpers';
 import { aquire, hypenatedToCamelCase } from './helpers';
 
-/** 
+/**
  * Optimised reads.
  * @param {Function} callback.  
  * @return {number} job reference. 
  */
-const read = (callback) => fastdom.measure(callback());
+const read = (callback) => fastDOM.measure(() => callback());
 
 /** 
  * Optimised writes.
  * @param {Function} callback.  
  * @return {number} job reference. 
  */
-const write = (callback) => fastdom.mutate(callback());
+const write = (callback) => fastDOM.mutate(() => callback());
 
 /** 
  * Kills a scheduled job.
  * @param {number} ref - job reference. 
  */
-const kill = (ref) => fastdom.clear(ref);
-
+const kill = (ref) => fastDOM.clear(ref);
 
 /** 
  * The elementMethods partial.
@@ -60,20 +59,20 @@ export default function elementMethodsPartial(key, e) {
      * @param {Function} callback.  
      * @return {number} job reference. 
      */
-    elementMethods.read = (callback) => fastdom.measure(callback(e));
+    elementMethods.read = (callback) => fastDOM.measure(() => callback(e));
 
     /** 
      * Optimised writes.
      * @param {Function} callback.  
      * @return {number} job reference. 
      */
-    elementMethods.write = (callback) => fastdom.mutate(callback(e));
+    elementMethods.write = (callback) => fastDOM.mutate(() => callback(e));
 
     /** 
      * Kills a scheduled job.
      * @param {number} ref - job reference. 
      */
-    elementMethods.kill = (ref) => fastdom.clear(ref);
+    elementMethods.kill = (ref) => fastDOM.clear(ref); 
    
     /** 
      * Get a selector with a unique id by given identifier names.
