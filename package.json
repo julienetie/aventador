@@ -1,11 +1,12 @@
 {
   "name": "aventador",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A framework for high performance web interactions",
   "main": "index.js",
   "repository": "git@github.com:julienetie/aventador.git",
   "author": "Julien Etienne <j8@protonmail.ch>",
   "license": "MIT",
+   "readme": "index.md",
   "devDependencies": {
     "azar": "^0.0.2",
     "babel-core": "^6.26.3",
