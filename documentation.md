@@ -1,4 +1,7 @@
-# Aventador Conventions
+# Aventador 
+
+## Conventions
+
 #### Ids
 Use id for individual element querying.
 ```html 
@@ -56,7 +59,7 @@ Handel elements that are of risk of being removed from the DOM.
 ```
 
 
-# Aventador API
+# API
 
 Optimised reads
 
