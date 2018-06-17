@@ -48,6 +48,6 @@ limited architecture.
 
 #### Credits
 - Aventador by [julien Etienne](https://github.com/julienetie)
-- [fastDOM](https://github.com/wilsonpage/fastdom) by [Wilson Page](https://github.com/wilsonpage)
+- [fastdom](https://github.com/wilsonpage/fastdom) by [Wilson Page](https://github.com/wilsonpage)
 
 MIT 2018 © Julien Etienne
