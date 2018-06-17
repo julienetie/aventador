@@ -44,6 +44,10 @@ limited architecture.
 - Aventador can be used with or without a view-layer library.
 - If you use a view-layer library it must feature a lifecycle hook before new mount.
 - It requires no dependencies. 
-- Supports all modern browsers, to support IE11 [click here](#). 
+- Supports all modern browsers, to support IE11 [click here](#).
+
+#### Credits
+- Aventador by [julien Etienne](https://github.com/julienetie)
+- [fastDOM](https://github.com/wilsonpage/fastdom) by [Wilson Page](https://github.com/wilsonpage)
 
 MIT 2018 © Julien Etienne
