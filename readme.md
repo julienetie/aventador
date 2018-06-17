@@ -6,7 +6,7 @@
 
 **tl;dr** Aventador is a utility library for high-performance Element manipulations using vanilla JavaScript. 
 
-### [Documentation](https://github.com/julienetie/aventador/blob/master/README.rst)
+### [Documentation](https://github.com/julienetie/aventador/blob/master/documentation.md)
 
 ### How it works
 Aventador allows you to manage attribute and property manipulation using referenced elements from your 
