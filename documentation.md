@@ -1,5 +1,5 @@
 # Aventador Conventions
-#### ids
+#### Ids
 Use id for individual element querying.
 ```html 
 <div id="some-id"></div> 
