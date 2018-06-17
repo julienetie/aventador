@@ -25,7 +25,7 @@ We can separate web manipulation into two areas:
 - A: DOM Tree modifications (writes): insertions, removals and rearrangements.
 - B: Animations (reads | writes): attributes, properties, rendered dimensions. 
 
-Aventador is the "B" concern that relives the duties of animations from "A" thus reducing the use of A.
+Aventador is the (B) concern that relives the duties of animations from (A) thus reducing the use of (A).
 The advantage of this separation means:
 
 - You can build highly optimised interfaces with smooth animations for advanced 
