@@ -9,7 +9,7 @@ Use id for individual element querying.
 ```
 #### Unique-ids
 Use unique ids to create unique element references with shared forenames whilst retaining valid HTML.
-Create unique ids by using the *.id()* method, the *.abc()* method and by assigning ids incrementally. 
+Create unique ids by using the *.id()* method, the *.abc()* method or by assigning ids incrementally. 
 The unique name should be separated from the shared name by a space.
 
 ```javascript 
@@ -18,7 +18,7 @@ The unique name should be separated from the shared name by a space.
 `<div id="some-id ${i}"></div>`              // <div id="some-id 12"></div> 
 ```
 #### Animation state
-Use the data-attribute to toggle state for CSS animations. 
+Use data attribute to toggle state for CSS animations. 
 
 ```javascript 
 `<div ${someState}></div>`                   // <div data-some-state></div>   
@@ -27,11 +27,11 @@ Use the data-attribute to toggle state for CSS animations.
 
 #### Styling
 - ids should not be used for styling. 
-- Within CSS data attributes should only be used for animation state.
+- Within CSS, data attributes should only be used for animation state.
 - class should be prefered for styling.
 
 #### Optimised read operations
-Only perform read operations within the *.write()* callback and *.then()* continuations.  
+Only perform read operations within the *.read()* callback and *.then()* continuations.  
 ```javascript
    read(()=>{
      console.log(e.sideBar().textContent);
