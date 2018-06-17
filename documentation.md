@@ -21,10 +21,20 @@ Use the data-attribute to toggle state for CSS animations.
 `<div ${someState}></div>`                   // <div data-some-state></div>   
 `<div data-some-state="${someValue}"></div>`  // <div data-some-state="blue"></div>   
 ```
+
 #### Styling
 - ids should not be used for styling. 
 - Within CSS data attributes should only be used for animation state.
 - class should be prefered for styling.
+
+#### Optimised read operations
+Only perform read operations within the *.write()* callback and *.then()* continuations.  
+```javascript
+   read(()=>{
+     console.log(e.sideBar().textContent);
+     return e;
+   }).then(e => // do something);
+```
 
 #### Optimised write operations
 Only perform write operations within the *.write()* callback and *.then()* continuations.  
@@ -34,14 +44,7 @@ Only perform write operations within the *.write()* callback and *.then()* conti
      return e; 
    }).then(e => // do something);
 ```
-#### Optimised read operations
-Only perform read operations within the *.write()* callback and *.then()* continuations.  
-```javascript
-   read(()=>{
-     console.log(e.sideBar().textContent);
-     return e;
-   }).then(e => // do something);
-```
+
 #### Reference statement
 Handel elements that are of risk of being removed from the DOM.
 ```javascript
