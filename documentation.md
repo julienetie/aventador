@@ -1,3 +1,33 @@
+# Aventador Conventions
+#### ids
+Use id for individual element querying.
+```html 
+<div id="some-id"></div> 
+```
+#### Unique ids
+Use unique ids to create unique element references with shared forenames whilst retaining valid HTML.
+Create unique ids by using the *.id()* method, the *.abc()* method and by assigning ids incrementally. 
+The unique name should be separated from the shared name by a space.
+
+```javascript 
+`<div id="some-id ${id()}"></div>`           // <div id="some-id 3"></div>  
+`<div id="some-id ${abc()}"></div>`          // <div id="some-id FA"></div>  
+`<div id="some-id ${i}"></div>`              // <div id="some-id 12"></div> 
+```
+#### Animation state
+Use the data-attribute to toggle state for CSS animations. 
+
+```javascript 
+`<div ${someState}></div>`                   // <div data-some-state></div>   
+`<div data-some-state="${someValue}"></div>`  // <div data-some-state="blue"></div>   
+```
+#### Styling
+- ids should not be used for styling. 
+- Within CSS data attributes should only be used for animation state.
+- class should be prefered for styling.
+
+
+
 # Aventador API
 
 Optimised reads
