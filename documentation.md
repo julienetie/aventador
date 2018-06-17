@@ -4,7 +4,7 @@ Use id for individual element querying.
 ```html 
 <div id="some-id"></div> 
 ```
-#### Unique ids
+#### Unique-ids
 Use unique ids to create unique element references with shared forenames whilst retaining valid HTML.
 Create unique ids by using the *.id()* method, the *.abc()* method and by assigning ids incrementally. 
 The unique name should be separated from the shared name by a space.
@@ -26,6 +26,31 @@ Use the data-attribute to toggle state for CSS animations.
 - Within CSS data attributes should only be used for animation state.
 - class should be prefered for styling.
 
+#### Optimised write operations
+Only perform write operations within the *.write()* callback and *.then()* continuations.  
+```javascript
+   write(()=>{
+     e.sideBar().style.backgroundColor = 'lime';
+     return e; 
+   }).then(e => // do something);
+```
+#### Optimised read operations
+Only perform read operations within the *.write()* callback and *.then()* continuations.  
+```javascript
+   read(()=>{
+     console.log(e.sideBar().textContent);
+     return e;
+   }).then(e => // do something);
+```
+#### Reference statement
+Handel elements that are of risk of being removed from the DOM.
+```javascript
+   e.sideBar(e => {
+      // If e exist then do this only 
+   }, e =>{
+      // If e is null, do this only
+   });
+```
 
 
 # Aventador API
